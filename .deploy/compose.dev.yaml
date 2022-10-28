@@ -1,5 +1,8 @@
 name: mongodb-create-database-and-user
 
+# Note that you need to add the following line to your /etc/hosts file for mongodb to be reachable from outside the
+# network created by docker compose using the `mongodb` hostname which is required by the replica set configuration:
+# 127.0.0.1  mongodb
 services:
   mongodb:
     image: "bitnami/mongodb:6.0"

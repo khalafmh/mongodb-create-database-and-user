@@ -8,6 +8,18 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 You can run your application in dev mode that enables live coding using:
 ```shell script
+# The username of the user that will be created
+export USERNAME=testuser
+# The password of the new user
+export PASSWORD=Hello123
+# The name of the database that the user will have privileges for.
+# the granted roles will be `readWrite` and `dbAdmin`.
+export DATABASE_NAME=testdb
+# The connection string for the MongoDB replica set. 
+# If omitted then the connection will be configured for the configured local deployment in .deploy/compose.dev.yaml 
+# in dev and test modes. 
+# Must be provided in production.
+export CONNECTION_STRING=mongodb://root:rootpassword@localhost:27017/admin?replicaSet=rs0
 ./gradlew quarkusDev
 ```
 
@@ -43,7 +55,7 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./build/mongodb-create-database-and-user-0.0.1-SNAPSHOT-runner`
+You can then execute your native executable with: `./build/mongodb-create-database-and-user-0.1.0-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
 
