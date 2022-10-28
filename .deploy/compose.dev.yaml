@@ -1,0 +1,19 @@
+name: mongodb-create-database-and-user
+
+services:
+  mongodb:
+    image: "bitnami/mongodb:6.0"
+    restart: "no"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "../local/mongodb-data:/bitnami/mongodb"
+    environment:
+      MONGODB_ROOT_USER: "root"
+      MONGODB_ROOT_PASSWORD: "cGFzc3dvcmQK"
+      MONGODB_ENABLE_DIRECTORY_PER_DB: "true"
+      MONGODB_REPLICA_SET_MODE: "primary"
+      MONGODB_REPLICA_SET_NAME: "testReplicaSet0"
+      MONGODB_ADVERTISED_HOSTNAME: mongodb
+      MONGODB_ADVERTISED_PORT_NUMBER: "27017"
+      MONGODB_REPLICA_SET_KEY: "I0FoVlM0Wjk4MlBXZDh5dVZGSXNC"
